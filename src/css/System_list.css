@@ -1,0 +1,116 @@
+.container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+ul {
+margin: 0;
+padding: 0;
+}
+
+.list-group {
+    margin: 0 15px 0px 15px;
+}
+
+.list-group-name {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 15px 15px;
+    border: 2px solid #32a1ce;
+    background-color: #f5f5f5;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 15px 15px;
+    border: 2px solid #32a1ce;
+}
+
+.system__schemes {
+    flex: 75;
+}
+
+.system__link {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-item:hover {
+    opacity: 0.3;
+    transition: opacity .4s ease;
+}
+
+
+.system__text {
+    font-family: 'Kaushan Script', sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+.menu_system {
+    margin: 30px 15px;
+}
+
+.system__btn {
+    flex: 25%;
+    text-align: right;
+}
+
+.add__btn {
+    margin-left: auto;
+    
+    text-align: right;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    border: 3px solid #32a1ce;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 1;
+    text-decoration: none;
+    align-items: center;
+    border-radius: 10px;
+    height: 40px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.system__btn { 
+}
+
+.edit__btn {
+    background-color: white;
+    border: none; 
+    color: blue; 
+    font-size: 18px; 
+    cursor: pointer; 
+    margin-right: 15px;
+    outline: 0;
+    transition: transform .1s linear; /* длительность операции transform */
+}
+
+.edit__btn:hover {
+    transform: translate3d(-5px,-5px,0); /* смешение картинки при наводе */
+}
+
+.del__btn{
+    background-color: white;
+    border: none; 
+    color: red; 
+    font-size: 18px; 
+    cursor: pointer; 
+    outline: 0;
+    transition: transform .1s linear; /* длительность операции transform */
+}
+
+.del__btn:hover {
+    transform: translate3d(-5px,-5px,0); /* смешение картинки при наводе */
+}

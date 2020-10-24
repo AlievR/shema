@@ -1,0 +1,67 @@
+.table__system {
+    
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.title__head {
+    padding: 15px;
+    border-bottom: 2px solid#32a1ce;
+    background-color: #f5f5f5;
+}
+
+.content__block {
+    padding: 15px;
+    border-bottom: 2px solid#32a1ce;
+    text-align: center; 
+}
+
+.scheme__name {
+    cursor: pointer;
+}
+.menu_system {
+    margin: 30px 15px;
+}
+
+.content__items:hover{
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+.table__tetx {
+    font-family: 'Kaushan Script', sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+
+
+
+.edit__btn {
+    background-color: white;
+    border: none; 
+    color: blue; 
+    font-size: 18px; 
+    cursor: pointer; 
+    margin-right: 15px;
+    outline: 0;
+    transition: transform .1s linear; /* длительность операции transform */
+}
+
+.edit__btn:hover {
+    transform: translate3d(-5px,-5px,0); /* смешение картинки при наводе */
+}
+
+.del__btn{
+    background-color: white;
+    border: none; 
+    color: red; 
+    font-size: 18px; 
+    cursor: pointer; 
+    outline: 0;
+    transition: transform .1s linear; /* длительность операции transform */
+}
+
+.del__btn:hover {
+    transform: translate3d(-5px,-5px,0); /* смешение картинки при наводе */
+}
