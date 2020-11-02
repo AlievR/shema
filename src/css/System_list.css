@@ -40,10 +40,6 @@ padding: 0;
     justify-content: space-between;
 }
 
-.list-group-item:hover {
-    opacity: 0.3;
-    transition: opacity .4s ease;
-}
 
 
 .system__text {
@@ -59,6 +55,7 @@ padding: 0;
 .system__btn {
     flex: 25%;
     text-align: right;
+    padding-bottom: 10px;
 }
 
 .add__btn {

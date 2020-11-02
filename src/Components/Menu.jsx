@@ -1,35 +1,30 @@
 import React, { useState } from 'react'
 import '../css/Menu.css'
 
-function Menu() {
 
+function Menu({PostInfoSystem}) {
     const [Score, SetScore] = useState(false);
-    const [SystemName, SetSystemName] = useState("");
-    const [SystemNetwork, SetSystemNetwork] = useState("");
+    const [form, setForm] = useState({
+        name: '', gateway: ''
+    })
 
     const OpenForm = () => {
         SetScore(true)
-    };
+    }
 
     const CloseForm = () => {
         SetScore(false)
-    };
-
-    const PostInfoSystem = (e) => {
-        e.preventDefault();
-        console.log(e.target.system_name.value,e.target.system_network.value,);
-        SetScore(false);
     }
 
-    const handleNameChange = (e) => {
 
-        SetSystemName(e.value)
+    const changeHandler = event => {
+        setForm({ ...form, [event.target.name]: event.target.value })
     }
 
-    const handleNetworkChange = (e) => {
-        SetSystemNetwork(e.value)
+    const addForm = () => {
+        PostInfoSystem('POST', {...form})
+        SetScore(false)
     }
-
 
     return (
         <div className="menu_system">
@@ -47,29 +42,30 @@ function Menu() {
                             </button>
 
                         </div>
-                        <form className="Form__system"
-                            onSubmit={PostInfoSystem}>
+                        <form className="Form__system">
                             <ul className="group__items">
                                 <li>
-                                    <input className="system__name"
+                                    <input
+                                        className="system__name"
                                         type="text"
-                                        name="system_name"
+                                        name="name"
                                         placeholder="Название ИС"
-                                        onChange={handleNameChange}
-                                        value={SystemName} />
+                                        onChange={changeHandler}
+                                        value={form.name} />
                                 </li>
                                 <li>
                                     <input className="system__name"
                                         type="text"
-                                        name="system_network"
+                                        name="gateway"
                                         placeholder="Сеть"
-                                        onChange={handleNetworkChange}
-                                        value={SystemNetwork} />
+                                        onChange={changeHandler}
+                                        value={form.gateway} />
                                 </li>
                                 <li>
                                     <button className="system__btn"
                                         type="submit"
-                                         > Добавить </button>
+                                        onClick={addForm}
+                                    > Добавить </button>
                                 </li>
                             </ul>
                         </form>

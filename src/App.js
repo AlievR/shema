@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header'
-import Home from './Page/Home'
-import About from './Page/About'
+import SystemList from './Page/SystemList'
+import SystemInfo from './Page/SystemInfo'
 
 import {
   BrowserRouter as Router,
@@ -17,12 +17,13 @@ function App() {
       <Header />
       <div>
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route 
+          path="/" 
+          exact
+          component={SystemList} />
+          <Route 
+          path="/system/:id" 
+          component={SystemInfo} />
         </Switch>
       </div>
     </Router>
