@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import TableSheme from '../Components/TableSheme'
-import Navbar from '../Components/Navbar'
-import Menu from '../Components/Menu'
-import '../css/Table.css'
+import TableSheme from '../Components/Table/TableSheme'
+import Navbar from '../Components/Navbar/Navbar'
+import '../Components/Table/Table.css'
 import { useParams } from 'react-router-dom'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
@@ -11,7 +10,6 @@ import { useMessage } from '../hooks/message.hook'
 
 
 function SystemInfo(props) {
-
 
     const [items, setItems] = useState([]);
     const [info_system, setInfo_system] = useState([]);
@@ -54,10 +52,10 @@ function SystemInfo(props) {
 
 
     // Загрузка файла
-    const uploadScheme = (selectedFile) => {
+    const uploadScheme = async (selectedFile) => {
         const data = new FormData()
         data.append('file', selectedFile, selectedFile.name)
-        axios.post(url, data)
+        const req = await axios.post(url, data)
         setIsLoaded(false)
     }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import '../css/Navbar.css'
+import './Navbar.css'
+import { Link } from 'react-router-dom'
 
 function Navbar({ name, gateway, createdAt, uploadScheme }) {
 
@@ -65,7 +66,10 @@ function Navbar({ name, gateway, createdAt, uploadScheme }) {
             <div className="navbar__conatiner">
                 <div className="navbar__content">
                     <div className="navbar__info">
-                        <button className="menu_back">Вернуться назад</button>
+               
+                        <button className="menu__back">
+                            <Link className="back__link" to="/">Вернуться назад</Link>
+                        </button>
                         <div className="navbar__upload">
                             <div className="navbar__subtile" >
                                 <span className="subtile__text"><b>Информационная система:</b> {name}</span>

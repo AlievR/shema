@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import TableSystem from '../Components/TableSystem'
-import Menu from '../Components/Menu'
-import '../css/Table.css'
+import TableSystem from '../Components/Table/TableSystem'
+import Menu from '../Components/Menu/Menu'
+import '../Components/Table/Table.css'
 import { useHttp } from '../hooks/http.hook'
 import { useMessage } from '../hooks/message.hook'
 

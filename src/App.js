@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header'
+import Header from './Components/Header/Header'
 import SystemList from './Page/SystemList'
 import SystemInfo from './Page/SystemInfo'
 

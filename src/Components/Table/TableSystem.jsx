@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../css/Table.css'
+import './Table.css'
 import { Link } from 'react-router-dom'
 
 function TableSystem({ _id, name, gateway, createdAt, hanldeVidjet }) {
@@ -18,6 +18,23 @@ function TableSystem({ _id, name, gateway, createdAt, hanldeVidjet }) {
         hanldeVidjet(_id, 'DELETE')
     }
 
+    const changeHandler = event => {
+        seteditText(event.target.value)
+    }
+    
+    const changeFocus = () => {
+       
+        setclickEdit(false)
+    }
+
+
+    const handleKeyPress = (event) => {
+        if (event.key == 'Enter') {
+         
+            setclickEdit(false)
+        }
+    }
+
     return (
         <tr key={_id} className="content__items">
             {
@@ -26,8 +43,8 @@ function TableSystem({ _id, name, gateway, createdAt, hanldeVidjet }) {
                         <Link to={{
                             pathname: `/system/${_id}`,
                             name: name,
-                            gateway:gateway,
-                            createdAt:createdAt
+                            gateway: gateway,
+                            createdAt: createdAt
                         }} >
                             <span></span>
                             <span className="table__tetx">{name}</span>
@@ -36,10 +53,12 @@ function TableSystem({ _id, name, gateway, createdAt, hanldeVidjet }) {
                     :
                     <td className="content__block">
                         <input
-                            className="system__name"
+                            className="table__tetx"
                             type="text"
                             name="name"
-                            placeholder={name}
+                            onBlur={changeFocus}
+                            onChange={changeHandler}
+                            onKeyPress={handleKeyPress}
                             value={editText.name} />
                     </td>
             }

@@ -1,6 +1,6 @@
 import React, { useState,useRef,useEffect } from 'react'
-import '../css/Table.css'
-import { Link } from 'react-router-dom'
+import './Table.css'
+
 
 function TableSheme({ _id, name, fileSrc, size, updatedAt, dowlandScheme, removeScheme, editScheme }) {
 
@@ -41,7 +41,6 @@ function TableSheme({ _id, name, fileSrc, size, updatedAt, dowlandScheme, remove
 
     return (
         <tr key={_id} className="content__items">
-
             {
                 clickEdit === false ?
                     <td className="content__block">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../css/Menu.css'
+import './Menu.css'
 
 
 function Menu({PostInfoSystem}) {
