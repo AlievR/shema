@@ -28,27 +28,24 @@ function SystemInfo(props) {
         clearError()
     }, [error, message, clearError])
 
-    //Получение информации по системе
-    useEffect(async () => {
-        try {
-            const system_data = await request(url_id, 'GET')
-            setInfo_system(system_data)
-        } catch (error) {
+    const item = [
+        {
+            "_id": "5f9a8220fde9b209ac41293a",
+            "name": "Руслан",
+            "gateway": "172.31.11.722/29",
+            "createdAt": "2020-10-29T08:49:36.017Z",
+            "updatedAt": "2020-10-29T08:49:36.017Z",
+            "__v": 0
+        },
+        {
+            "_id": "5f9aabc1ebc9cb0d5019c7c1",
+            "name": "wqdqw",
+            "gateway": "qdwqdw",
+            "createdAt": "2020-10-29T11:47:13.251Z",
+            "updatedAt": "2020-10-29T11:47:13.251Z",
+            "__v": 0
         }
-    }, [isLoaded])
-
-    console.log(info_system)
-
-    //Получение списка всех файлов для конрктной системы
-    useEffect(async () => {
-        try {
-            const data = await request(url, 'GET')
-            setIsLoaded(true);
-            setItems(data);
-        } catch (error) {
-            setIsLoaded(true);
-        }
-    }, [isLoaded])
+    ]
 
 
     // Загрузка файла
@@ -90,11 +87,7 @@ function SystemInfo(props) {
     }
 
 
-    if (error) {
-        return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-    } else {
+    
         return (
             <div>
 
@@ -124,7 +117,7 @@ function SystemInfo(props) {
                     </thead>
                     <tbody>
                         {
-                            items.map((obj) => {
+                            item.map((obj) => {
                                 return (
                                     <TableSheme key={obj._id} {...obj}
                                         dowlandScheme={dowlandScheme}
@@ -138,7 +131,7 @@ function SystemInfo(props) {
                 </ table>
             </div>
         )
-    }
+    
 }
 
 export default SystemInfo

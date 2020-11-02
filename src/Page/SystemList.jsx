@@ -15,22 +15,30 @@ function SystemList() {
     const message = useMessage()
     const { request, error, clearError } = useHttp()
 
+    const item = [
+        {
+            "_id": "5f9a8220fde9b209ac41293a",
+            "name": "Руслан",
+            "gateway": "172.31.11.722/29",
+            "createdAt": "2020-10-29T08:49:36.017Z",
+            "updatedAt": "2020-10-29T08:49:36.017Z",
+            "__v": 0
+        },
+        {
+            "_id": "5f9aabc1ebc9cb0d5019c7c1",
+            "name": "wqdqw",
+            "gateway": "qdwqdw",
+            "createdAt": "2020-10-29T11:47:13.251Z",
+            "updatedAt": "2020-10-29T11:47:13.251Z",
+            "__v": 0
+        }
+    ]
 
     useEffect(() => {
         message(error)
         clearError()
     }, [error, message, clearError])
 
-
-    useEffect( async () => {
-        try {
-            const data = await request(url, 'GET')
-            setIsLoaded(true);
-            setItems(data);
-        } catch (error) {
-            setIsLoaded(true);
-        }
-    }, [isLoaded])
 
 
     const addSystem = async (request_type, formInfo) => {
@@ -55,44 +63,40 @@ function SystemList() {
     }
 
 
-    if (error) {
-        return <div>Ошибка: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Загрузка...</div>;
-    } else {
-        return (
-            <div className="system_list">
-                <Menu PostInfoSystem={addSystem} />
-                < table className="table__system">
-                    <thead>
-                        <tr>
-                            <th className="title__head">
-                                <span className="table__tetx"> Название ИС </span>
-                            </th>
-                            <th className="title__head">
-                                <span className="table__tetx">Сеть</span>
-                            </th>
-                            <th className="title__head">
-                                <span className="table__tetx">Дата создания</span>
-                            </th>
-                            <th className="title__head">
-                                <span className="table__tetx">Виджеты</span>
-                            </th>
-                        </ tr>
-                    </thead>
-                    <tbody>
-                        {
-                            items.map((obj) => {
-                                return (
-                                    <TableSystem key={obj._id} {...obj} hanldeVidjet={changeVidjetStatus} />
-                                )
-                            })
-                        }
-                    </ tbody>
-                </ table>
-            </div>
 
-        )
-    }
+    return (
+        <div className="system_list">
+            <Menu PostInfoSystem={addSystem} />
+            < table className="table__system">
+                <thead>
+                    <tr>
+                        <th className="title__head">
+                            <span className="table__tetx"> Название ИС </span>
+                        </th>
+                        <th className="title__head">
+                            <span className="table__tetx">Сеть</span>
+                        </th>
+                        <th className="title__head">
+                            <span className="table__tetx">Дата создания</span>
+                        </th>
+                        <th className="title__head">
+                            <span className="table__tetx">Виджеты</span>
+                        </th>
+                    </ tr>
+                </thead>
+                <tbody>
+                    {
+                        item.map((obj) => {
+                            return (
+                                <TableSystem key={obj._id} {...obj} hanldeVidjet={changeVidjetStatus} />
+                            )
+                        })
+                    }
+                </ tbody>
+            </ table>
+        </div>
+
+    )
+
 }
 export default SystemList
